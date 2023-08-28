@@ -2,3 +2,12 @@ $ awk -F "," '{print $3}' "c:\Users\juanm\OneDrive\Documentos\Felipe universidad
 
 1.2 Descarga de Archivos
 andresestebanortizjimenez@MacBook-Air-de-Andres-2 Taller_1 % mkdir "Vidrio" "Materia inorgánica" "Materia Orgánica" "Plásticos Comerciales" "Exotico" "Combustible
+
+awk -F "," '$1=="Mezclas" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Exotico" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Materia Inorgánica" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Combustible" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Plásticos Comerciales" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Materia Orgánica" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Adhesivos Ópticos" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Vidrio" {system("wget \"" $4 "\"")}' indices_refraccion.csv        
