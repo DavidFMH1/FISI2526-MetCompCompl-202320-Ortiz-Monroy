@@ -29,5 +29,5 @@ def tuplas(archivo):
 
     return print(lista)
 
-ruta='c:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Adhesivos Ópticos\\Iezzi.yml'
+ruta="C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Materia inorgánica\\Sinnock-solid-115.95K.yml"
 tuplas(ruta)
