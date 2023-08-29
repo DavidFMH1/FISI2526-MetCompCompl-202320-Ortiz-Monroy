@@ -27,7 +27,18 @@ def tuplas(archivo):
             n=""
             blank = 0
 
-    return print(lista)
+    return lista
 
-ruta="C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Materia inorgánica\\Sinnock-solid-115.95K.yml"
-tuplas(ruta)
+def graphics(lista):
+    x =[]
+    y = []
+    for i in lista:
+        x.append(i[1])
+        y.append(i[0])
+    plt.scatter(x,y)
+    plt.show
+
+
+ruta= "C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Vidrio\\BF1.yml"
+lista= tuplas(ruta)
+graphics(lista)
