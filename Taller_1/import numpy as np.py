@@ -7,6 +7,7 @@ def tuplas(archivo):
     prim_T = arch.readline()
     lam = ""
     n = ""
+    blank = 0
     while prim_T != "    data: |\n":
         prim_T = arch.readline()
     
@@ -14,17 +15,19 @@ def tuplas(archivo):
         prim_T = arch.readline()
         while prim_T != "" and prim_T != "SPECS:\n":
             for i in prim_T:
-                if i != " ":
-                    if len(lam) <= 4:
-                        lam += str(i)
-                    elif len(n) <= 8:
-                        n += str(i)
-            print ((float(lam),float(n)))
-            prim_T = arch.readline( )
+                if i == " ":
+                    blank += 1
+                elif i != " " and blank == 8:
+                    lam += str(i)
+                elif blank == 9 and i != "\n":
+                    n += str(i)
+            lista.append((float(lam),float(n)))
+            prim_T = arch.readline()
             lam=""
             n=""
+            blank = 0
 
-    return
+    return print(lista)
 
 ruta='c:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Adhesivos Ópticos\\Iezzi.yml'
 tuplas(ruta)
