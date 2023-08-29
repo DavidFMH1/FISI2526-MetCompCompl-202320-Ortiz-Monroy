@@ -36,8 +36,9 @@ def graphics(lista):
         x.append(i[1])
         y.append(i[0])
     plt.scatter(x,y)
+    plt.show
 
-
+#para intentar desde diferentes dispositivos agregue la ruta correspondiente a su dispositivo
 ruta= "C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Vidrio\\BF1.yml"
 lista= tuplas(ruta)
 graphics(lista)
