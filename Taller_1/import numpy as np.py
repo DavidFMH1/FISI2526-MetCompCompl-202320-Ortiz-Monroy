@@ -11,9 +11,10 @@ def tuplas(archivo):
     while prim_T != "    data: |\n":
         prim_T = arch.readline()
     
-    if prim_T == "    data: |\n":
-        prim_T = arch.readline()
-        while prim_T != "" and prim_T != "SPECS:\n":
+    while prim_T != "" and prim_T != "SPECS:\n":
+        if prim_T == "    data: |\n" or "  - type: tabulated k\n" == prim_T:
+            prim_T = arch.readline()
+        else:
             for i in prim_T:
                 if i == " ":
                     blank += 1
@@ -26,19 +27,22 @@ def tuplas(archivo):
             lam=""
             n=""
             blank = 0
-
+    arch.close
     return lista
 
-def graphics(lista):
+def graphics(nombre_archivo):
+    lista = tuplas(nombre_archivo)
+    
     x =[]
     y = []
     for i in lista:
-        x.append(i[1])
-        y.append(i[0])
+        x.append(i[0])
+        y.append(i[1])
     plt.scatter(x,y)
-    plt.show
+    plt.show()
+    plt.title()
 
 #para intentar desde diferentes dispositivos agregue la ruta correspondiente a su dispositivo
-ruta= "C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Vidrio\\BF1.yml"
+ruta= "C:\\Users\\juanm\\OneDrive\\Documentos\\Felipe universidad\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\Taller_1\\Plásticos Comerciales\\French.yml"
 lista= tuplas(ruta)
-graphics(lista)
+graphics(ruta)
