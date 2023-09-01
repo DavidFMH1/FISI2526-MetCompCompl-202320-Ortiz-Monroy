@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
+import os
 
 def tuplas(archivo):
     arch=open(archivo)
@@ -39,9 +40,14 @@ def graphics(nombre_archivo):
     for i in lista:
         x.append(i[0])
         y.append(i[1])
+        n = os.path.split(nombre_archivo)[1]
+        n1= n.replace(".yml","")
+        r= os.path.split(nombre_archivo)[0]+"\\"+n1
     plt.scatter(x,y)
-    plt.show()
-    #plt.title()
+    plt.ylabel("Índice de refracción")
+    plt.xlabel("Lambda")
+    plt.title(n1)
+    plt.savefig(r)
 
 def iterated_graphics():
     l = glob.glob("**/*.yml", recursive=True)
