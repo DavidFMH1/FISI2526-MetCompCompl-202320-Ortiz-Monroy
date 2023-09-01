@@ -1,3 +1,13 @@
+carpetas = ("Vidrio" "Materia inorgánica" "Materia Orgánica" "Plásticos Comerciales" "Exotico" "Combustible")
+for carpeta in carpetas
+do 
+    mkdir $carpeta
+    cd $carpeta
+    awk -F "," '$1=="$carpeta" {system("wget \"" $4 "\"")}' indices_refraccion.csv
+    cd ..
+done
+
+
 $ awk -F "," '{print $3}' "c:\Users\juanm\OneDrive\Documentos\Felipe universidad\FISI2526-MetCompCompl-202320-Ortiz-Monroy\Taller_1\indices_refraccion.csv" > "c:\Users\juanm\OneDrive\Documentos\Felipe universidad\FISI2526-MetCompCompl-202320-Ortiz-Monroy\Taller_1\materiales.txt"
 
 1.2 Descarga de Archivos
