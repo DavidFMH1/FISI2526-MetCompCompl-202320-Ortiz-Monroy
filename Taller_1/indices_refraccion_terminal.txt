@@ -1,3 +1,4 @@
+Ls
 carpetas = ("Vidrio" "Materia inorgánica" "Materia Orgánica" "Plásticos Comerciales" "Exotico" "Combustible")
 for carpeta in carpetas
 do 
@@ -13,12 +14,12 @@ $ awk -F "," '{print $3}' "c:\Users\juanm\OneDrive\Documentos\Felipe universidad
 1.2 Descarga de Archivos
 andresestebanortizjimenez@MacBook-Air-de-Andres-2 Taller_1 % mkdir "Vidrio" "Materia inorgánica" "Materia Orgánica" "Plásticos Comerciales" "Exotico" "Combustible
 
-awk -F "," '$1=="Vidrio" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Exotico" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Materia Orgánica" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Materia Inorgánica" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Combustible" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Materia Orgánica" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Adhesivos Ópticos" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Mezclas" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv
-awk -F "," '$1=="Plásticos Comerciales" {system("wget -O "$3" \"" $4 "\"")}' indices_refraccion.csv   
+awk -F "," '$1=="Vidrio" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Exotico" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Materia Orgánica" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Materia Inorgánica" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Combustible" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Materia Orgánica" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Adhesivos Ópticos" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Mezclas" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv
+awk -F "," '$1=="Plásticos Comerciales" {system("wget -O "$3".yml \"" $4 "\"")}' indices_refraccion.csv   
