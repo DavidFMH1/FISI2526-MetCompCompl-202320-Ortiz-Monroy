@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import glob
 import os
+from pathlib import Path
+
 
 def tuplas(archivo):
     arch=open(archivo)
@@ -41,16 +43,15 @@ def graphics(nombre_archivo):
         y.append(i[1])
         n = os.path.split(nombre_archivo)[1]
         n1= n.replace(".yml","")
-        r= os.path.split(nombre_archivo)[0]+"\\"+n1
+        r= Path(os.path.split(nombre_archivo)[0]+"\\"+n1)
         n_prom = round(np.mean(y),4)
-        lam_prom = np.mean(x)
         dev = round(np.std(y),4)
-    plt.scatter(x,y)
+    plt.plot(x,y)
     plt.ylabel("Índice de refracción")
     plt.xlabel("Lambda")
     plt.title(n1 + '\n' + 'n promedio = '+str(n_prom)+'  Desviación Estándar = '+str(dev))
     plt.savefig(r)
-    plt.close(r)
+    plt.close()
 
 def iterated_graphics():
     l = glob.glob("**/*.yml", recursive=True)
