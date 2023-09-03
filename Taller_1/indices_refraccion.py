@@ -34,7 +34,6 @@ def tuplas(archivo):
 
 def graphics(nombre_archivo):
     lista = tuplas(nombre_archivo)
-    
     x =[]
     y = []
     for i in lista:
@@ -51,6 +50,7 @@ def graphics(nombre_archivo):
     plt.xlabel("Lambda")
     plt.title(n1 + '\n' + 'n promedio = '+str(n_prom)+'  Desviación Estándar = '+str(dev))
     plt.savefig(r)
+    plt.close(r)
 
 def iterated_graphics():
     l = glob.glob("**/*.yml", recursive=True)
