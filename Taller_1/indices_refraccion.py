@@ -43,9 +43,9 @@ def graphics(nombre_archivo):
         n = os.path.split(nombre_archivo)[1]
         n1= n.replace(".yml","")
         r= os.path.split(nombre_archivo)[0]+"\\"+n1
-    n_prom = round(np.mean(y),4)
-    lam_prom = np.mean(x)
-    dev = round(np.std(y),4)
+        n_prom = round(np.mean(y),4)
+        lam_prom = np.mean(x)
+        dev = round(np.std(y),4)
     plt.scatter(x,y)
     plt.ylabel("Índice de refracción")
     plt.xlabel("Lambda")
