@@ -4,7 +4,6 @@ import glob
 import os
 from pathlib import Path
 
-
 def tuplas(archivo):
     arch=open(archivo)
     lista=[]
@@ -46,22 +45,20 @@ def graphics(nombre_archivo):
         r= Path(os.path.split(nombre_archivo)[0]+"\\"+n1)
         n_prom = round(np.mean(y),4)
         dev = round(np.std(y),4)
-    plt.plot(x,y)
+    plt.scatter(x,y)
     plt.ylabel("Índice de refracción")
     plt.xlabel("Lambda")
     plt.title(n1 + '\n' + 'n promedio = '+str(n_prom)+'  Desviación Estándar = '+str(dev))
     plt.savefig(r)
     plt.close()
+    
 
 def iterated_graphics():
     l = glob.glob("**/*.yml", recursive=True)
     for i in range(0,len(l)):
+        #para realizar esta funcion se debe cambiar la ruta al archivo .yml 
         j = "C:\\Users\\david\\OneDrive\\Documentos\\programas\\Metodos\\FISI2526-MetCompCompl-202320-Ortiz-Monroy\\"+l[i]
         l[i]=j
         graphics(l[i])
 
 iterated_graphics()
-#para intentar desde diferentes dispositivos agregue la ruta correspondiente a su dispositivo
-#ruta= "C:\Users\david\OneDrive\Documentos\programas\Metodos\FISI2526-MetCompCompl-202320-Ortiz-Monroy\Taller_1\Adhesivos Ópticos\Loctite.yml"
-#lista= tuplas(ruta)
-#graphics(ruta)
