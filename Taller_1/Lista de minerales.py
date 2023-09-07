@@ -7,16 +7,11 @@ separador= "/t"
 
 datos=pd.read_csv("minerales.txt", sep='\t')
 datosArray=np.array(datos)
+mineralesArray=np.array([])
 
+print(datosArray)
 for i in range(len(datos)):
-    for j in range len(8):
-        mineral=m.Mineral(datosArray[i][j])
-        print(mineral)
+    mineral=m.Mineral(datosArray[i][0],datosArray[i][1],datosArray[i][2],datosArray[i][3],datosArray[i][4],datosArray[i][5],datosArray[i][6],datosArray[i][7])
+    mineralesArray = np.append(mineralesArray,mineral)
 
-
-
-
-
-"""archivo=open("minerales.txt","r")
-print(archivo.read())
-archivo.close()"""
+print(mineralesArray)
