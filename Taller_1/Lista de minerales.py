@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 
 #archivo= "minerales.txt"
-separador= "/t"
+separador= "\t"
 
-datos=pd.read_csv("minerales.txt", sep='\t')
+datos=pd.read_csv("minerales.txt",sep="\t")
 datosArray=np.array(datos)
 mineralesArray=np.array([])
 
