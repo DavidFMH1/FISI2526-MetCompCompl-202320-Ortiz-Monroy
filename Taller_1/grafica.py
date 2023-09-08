@@ -18,10 +18,18 @@ def grafica(l):
     
     x = []
     y = []
-    
+
     for i in l:
         x.append(i[0])
         y.append(i[1])
+    
+    for i in range(len(x)-1):
+        dx = x[i+1]-x[i]
+        dy = y[i+1]-y[i]
+        
+        alpha = (dy/dx)*(1/y[i])
+        
+        plt.scatter(alpha,y[i])
     
     plt.scatter(x,y)
     plt.show()
