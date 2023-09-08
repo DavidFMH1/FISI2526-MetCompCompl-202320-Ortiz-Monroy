@@ -29,7 +29,7 @@ def grafica(l):
         
         alpha = (dy/dx)*(1/y[i])
         
-        plt.scatter(alpha,y[i])
+        plt.scatter(y[i],alpha)
     
     plt.scatter(x,y)
     plt.show()
