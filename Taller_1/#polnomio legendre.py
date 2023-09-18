@@ -18,11 +18,8 @@ def derivada_legendre(f):
 
 #ingrese n
 
-n = 2
+n = 4
 print(legendre(_x,n))
-
-def Derivative(f,x,n,h=1e-2):
-    return (f(x+h,n)-f(x-h,n))/(2*h)
 
 def GetNewtonMethod(f,xn,n,itmax=100,precision=1e-8):
     
@@ -74,4 +71,20 @@ def GetAllRoots(n, tolerancia=5):
     
     return Roots
 
-print(GetAllRoots(2))
+#ingrese un n_2 para hallar los ceros del n-esimo polinomio de legendre
+
+n_2 = 2
+
+print(GetAllRoots(n_2))
+
+x_p = GetAllRoots(n_2)
+
+def pesos_legendre(x_p,n):
+     
+    df = derivada_legendre(legendre(_x,n))
+    
+    c_k = 2/((1-x_p**2)*(df(x_p)**2)),5
+        
+    return c_k
+
+print(pesos_legendre(x_p,n_2))
