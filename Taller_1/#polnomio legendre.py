@@ -18,7 +18,7 @@ def derivada_legendre(f):
 
 #ingrese n
 
-n = 4
+n = 2
 print(legendre(_x,n))
 
 def GetNewtonMethod(f,xn,n,itmax=100,precision=1e-8):
@@ -83,8 +83,9 @@ def pesos_legendre(x_p,n):
      
     df = derivada_legendre(legendre(_x,n))
     
-    c_k = 2/((1-x_p**2)*(df(x_p)**2)),5
+    c_k = 2/((1-x_p**2)*(df(x_p)**2))
         
     return c_k
 
 print(pesos_legendre(x_p,n_2))
+
