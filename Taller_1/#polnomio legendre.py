@@ -11,10 +11,10 @@ def legendre(x, n):
     return sym.simplify((1/((2**n)*(math.factorial(n))))*sym.diff((((x**2)-1)**n),x,n))
 
 def legendre1(l):
-    return sym.lambdify([_x],l,'numpy')
+    return sym.lambdify([_x],l, "numpy")
 
 def derivada_legendre(f):
-    return sym.lambdify([_x],sym.diff(f,_x),'numpy')
+    return sym.lambdify([_x],sym.diff(f,_x), "numpy")
 
 #ingrese n
 
@@ -24,21 +24,21 @@ print(legendre(_x,n))
 def Derivative(f,x,n,h=1e-2):
     return (f(x+h,n)-f(x-h,n))/(2*h)
 
-def GetNewtonMethod(xn,n,itmax=100,precision=1e-8):
+def GetNewtonMethod(f,xn,n,itmax=100,precision=1e-8):
     
     error = 1.
     it = 0
     
-    f = legendre1
-    df = derivada_legendre(f)
+    f1 = legendre1(f(_x,n))
+    df = derivada_legendre(f(_x,n))
     
     while error > precision and it < itmax:
         
         try:
             
-            xn1 = xn - f(xn,n)/df(xn)
+            xn1 = xn - f1(xn)/df(xn)
             # Criterio de parada
-            error = np.abs(f(xn,n)/df(xn))
+            error = np.abs(f1(xn)/df(xn))
             
         except ZeroDivisionError:
             print('Division por cero')
