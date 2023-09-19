@@ -37,7 +37,3 @@ class Mineral:
 
         return(str(self.dureza)+", "+tipo_de_rompimiento+", "+(self.sistema_cristalino))
         
-
-"""mineral1= Mineral(nombre="grafito", dureza=1.5, lustre="METÁLICO", rompimiento_por_fractura=False, color="#5f6168", composicion="SiO", sistema_cristalino="HEXAGONAL", specific_gravitiy=2.2)
-
-print(mineral1.dureza_rompimiento_organizacion())"""

@@ -12,10 +12,13 @@ class ExpansionTermicaMineral(m.Mineral):
         datosArray=np.array(datos)
         temperatura=np.array([])
         volumen=np.array([])
+        array=np.array()
         for i in range(len(datosArray)):
             temperatura=np.append(temperatura,datosArray[i][0])
         for i in range(len(datosArray)):
             volumen=np.append(volumen,datosArray[i][1])
+
+        return np.append(array,temperatura,volumen)
         
            
 
