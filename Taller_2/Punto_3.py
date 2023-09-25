@@ -1,4 +1,4 @@
-#Punto 3.1
+#Punto 3.1 Polinomios de Laguerre
 
 import numpy as np
 import sympy as sym
@@ -21,7 +21,7 @@ def DiffLaguerre(n,x):
     pn = GetLaguerre(n,x)
     return sym.diff(pn,x,1)
 
-def GetNewton(f,df,xn,itmax=10000,precision=1e-14):
+def GetNewton(f,df,xn,itmax=10000,precision=1e-12):
     
     error = 1.
     it = 0
@@ -45,7 +45,7 @@ def GetNewton(f,df,xn,itmax=10000,precision=1e-14):
     else:
         return xn
     
-def GetRoots(f,df,x,tolerancia = 10):
+def GetRoots(f,df,x,tolerancia = 5):
     
     Roots = np.array([])
     
@@ -99,13 +99,15 @@ def GetWeigthsLag(n,x):
             weigths = np.append(weigths,w)
             
     return weigths
+
+nl = 2
     
 print('polinomios de Laguerre')
-print(GetLaguerre(2,_x))
-print(GetAllRootsGLag(2))
-print(GetWeigthsLag(2,_x))
+print(GetLaguerre(nl,_x))
+print(GetAllRootsGLag(nl))
+print(GetWeigthsLag(nl,_x))
 
-#Punto 3.2
+#Punto 3.2 Polinomios de Hermite
 
 def GetHermite(n,x):
     if n == 0:
@@ -161,3 +163,25 @@ print('polinomios de Hermite')
 print(GetHermite(2,_x))
 print(GetAllRootsGHer(2))
 print(GetWeigthsHer(2,_x))
+
+#Punto 3.3 Aplicación
+
+def function(x):
+    return np.sqrt(x)
+
+def IntegralLag(f,n):
+    
+    r = GetAllRootsGLag(n)
+    w = GetWeigthsLag(n,_x)
+    
+    res = 0
+    
+    for i in range(len(r)):
+        res += w[i]*f(r[i])
+        
+    return res
+
+print('punto 3 aplicación')
+#se integra de esta manera por la forma de la integral resultante en la Imagen_1
+print((2/np.sqrt(np.pi))*IntegralLag(function,15))
+#se observa que el resultado es aproximadamente 1
