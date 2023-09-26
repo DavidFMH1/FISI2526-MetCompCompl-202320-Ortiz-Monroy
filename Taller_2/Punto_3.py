@@ -153,9 +153,7 @@ def GetWeigthsHer(n,x):
         
         w = (2**(n-1)*math.factorial(n)*np.sqrt(n))/((n**2)*(l_h1(i)**2))
         
-        if w not in weigths:
-            
-            weigths = np.append(weigths,w)
+        weigths = np.append(weigths,w)
     
     return weigths
 
