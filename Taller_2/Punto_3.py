@@ -66,7 +66,7 @@ def GetRoots(f,df,x,tolerancia = 5):
 def GetAllRootsGLag(n):
 
     j = n+((n-1)*np.sqrt(n))
-    xn = np.linspace(0,j,100)
+    xn = np.linspace(0,j,round(50+((j**2)/2)))
     
     Legendre = np.array([])
     DLegendre = np.array([])
@@ -181,5 +181,56 @@ def IntegralLag(f,n):
 
 print('punto 3 aplicación')
 #se integra de esta manera por la forma de la integral resultante en la Imagen_1
-print((2/np.sqrt(np.pi))*IntegralLag(function,15))
+#print((2/np.sqrt(np.pi))*IntegralLag(function,20))
 #se observa que el resultado es aproximadamente 1
+
+x = np.linspace(0,500,100)
+
+def FunctionVel(x,t,M=0.1,R=8.314):
+    return 4*np.pi*((M/(2*np.pi*R*t))**(3/2))*(x**2)*np.exp((-M*(x**2))/(2*R*t))
+
+def GraphicsTemps(n,f,x):
+    
+    T = np.random.uniform(50,400,n)
+    
+    T.sort()
+    
+    for i in T:
+        y = f(x,i)
+        plt.plot(x,y,label=str(i))
+        plt.xscale("log")
+        plt.legend()
+    plt.show()       
+        
+GraphicsTemps(10,FunctionVel,x)
+
+def IntegraLag2(n,t,R=8.314,M=0.1):
+     
+    r = GetAllRootsGLag(n)
+    w =GetWeigthsLag(n,_x)
+     
+    res = 0
+     
+    for i in range(len(r)):
+         
+        res += w[i]*r[i]
+    
+    return res*(np.sqrt((8*R*t)/(M*np.pi)))
+
+def IntegralIts(n):
+    
+    T = np.random.uniform(50,400,n)
+    
+    T.sort()
+    
+    vp = np.array([])
+    
+    for i in T:
+        
+        v_p = IntegraLag2(5,i)
+        
+        vp = np.append(vp,v_p)
+    
+    return (T,vp)
+
+print(IntegralIts(10))
