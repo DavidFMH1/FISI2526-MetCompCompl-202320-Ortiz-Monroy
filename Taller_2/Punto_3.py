@@ -102,10 +102,10 @@ def GetWeigthsLag(n,x):
 
 nl = 2
     
-print('polinomios de Laguerre')
+"""print('polinomios de Laguerre')
 print(GetLaguerre(nl,_x))
 print(GetAllRootsGLag(nl))
-print(GetWeigthsLag(nl,_x))
+print(GetWeigthsLag(nl,_x))"""
 
 #Punto 3.2 Polinomios de Hermite
 
@@ -157,10 +157,10 @@ def GetWeigthsHer(n,x):
     
     return weigths
 
-print('polinomios de Hermite')
+"""print('polinomios de Hermite')
 print(GetHermite(2,_x))
 print(GetAllRootsGHer(2))
-print(GetWeigthsHer(2,_x))
+print(GetWeigthsHer(2,_x))"""
 
 #Punto 3.3 Aplicación
 
@@ -179,7 +179,7 @@ def IntegralLag(f,n):
         
     return res
 
-print('punto 3 aplicación')
+#print('punto 3 aplicación')
 #se integra de esta manera por la forma de la integral resultante en la Imagen_1
 #print((2/np.sqrt(np.pi))*IntegralLag(function,20))
 #se observa que el resultado es aproximadamente 1
@@ -203,6 +203,7 @@ def GraphicsTemps(n,f,x):
     plt.show()       
         
 GraphicsTemps(10,FunctionVel,x)
+#Podemos observar que si las temperaturas aumentan, las velocidades también
 
 def IntegraLag2(n,t,R=8.314,M=0.1):
      
@@ -233,4 +234,60 @@ def IntegralIts(n):
     
     return (T,vp)
 
-print(IntegralIts(10))
+def VelocidadP(temp):
+    return np.sqrt((8*8.314*temp)/(np.pi*0.1))
+
+temp=np.linspace(80,300,500)
+'''T,vp=IntegralIts(10)
+v_p=VelocidadP(temp)
+plt.plot(v_p,temp,color='r',label='Real')
+plt.plot(vp,T,color='b',label='Experimental')
+plt.xscale("log")
+plt.yscale("log")'''
+
+def IntegraLag3(n,t,R=8.314,M=0.1):
+     
+    r = GetAllRootsGLag(n)
+    w =GetWeigthsLag(n,_x)
+
+    res = 0
+     
+    for i in range(len(r)):
+         
+        res += w[i]*(r[i]**(3/2))
+    
+    const=(1/(np.pi**(1/4)))*(np.sqrt((4*R*t)/M))
+
+    return np.sqrt(res)*const
+
+
+def IntegralIts2(n):
+    
+    T = np.random.uniform(50,400,n)
+    
+    T.sort()
+    
+    vrms = np.array([])
+    
+    for i in T:
+        
+        v_rms = IntegraLag3(5,i)
+        
+        vrms = np.append(vrms,v_rms)
+    
+    return (T,vrms)
+
+def VelocidadRms(temp):
+    return np.sqrt((3*8.314*temp)/0.1)
+
+T1,vrms=IntegralIts2(10)
+v_rms=VelocidadRms(temp)
+
+'''plt.plot(vrms,T1,color='r',label='Experimental')
+plt.plot(v_rms,temp,color='b',label='Real')
+plt.xscale("log")
+plt.yscale("log")'''
+plt.legend()
+plt.show()
+
+
