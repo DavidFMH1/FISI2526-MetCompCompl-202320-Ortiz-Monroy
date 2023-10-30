@@ -34,3 +34,34 @@ print(eigenvalue(A,b,90))
 
 #print(np.dot(A,c))
 #print(c*3) 
+
+A = np.array([[-2.,1.,0.],[1.,-2.,1.],[0.,1.,-2]])
+b = np.array([1.,1.,1.])
+
+def norma(v):
+    return np.sqrt(np.dot(v,v.T))
+
+def ptm(w,A):
+    wt = w.T
+    p = np.dot(wt,A)
+    f = np.dot(p,w)
+    return f
+
+def eigenvectors(A,b,k):
+    
+    z = b
+       
+    for i in range(k):
+        w = z/norma(z)  
+        mu =  ptm(w,A)
+        z = np.matmul(A,w)
+    
+    return w,mu
+
+print(eigenvectors(A,b,10))
+
+v,e = eigenvectors(A,b,10)
+
+w = np.sqrt(np.abs(e))
+
+print(w)
