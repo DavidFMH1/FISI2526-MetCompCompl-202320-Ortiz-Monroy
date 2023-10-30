@@ -203,7 +203,7 @@ def GraphicsTemps(n,f,x):
     plt.show()       
         
 GraphicsTemps(10,FunctionVel,x)
-#Podemos observar que si las temperaturas aumentan, las velocidades también
+#Podemos observar que si las temperaturas aumentan, la velocidad más probable también aumenta
 
 def IntegraLag2(n,t,R=8.314,M=0.1):
      
