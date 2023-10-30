@@ -45,13 +45,3 @@ def solucion_lineal(A,b):
     Bs=sustitucion_atras(B)
 
     return Bs
-
-print(A.shape[1])
-#print(solucion_lineal(A,b))
-
-#print(np.linalg.solve(A,b))
-
-#print(gaussian_elimitation(A,b))
-#K=np.zeros(shape=(3,3))
-#K=M[:,:3]
-#print(K)
