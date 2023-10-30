@@ -1,8 +1,10 @@
 import numpy as np
 
-A= np.array([[3.,1.,-1.],[1.,-2.,1.],[4.,-1.,1.]])
+F= np.array([[3.,1.,-1.],[1.,-2.,1.],[4.,-1.,1.]])
+Fs=np.array([2.,0.,3.])
 
-b=np.array([2.,0.,3.])
+I= np.array([[1.,1.,1.],[0.,-8.,10.],[4.,-8.,0.]])
+Is= np.array([0,0,6])
 
 def sustitucion_atras(M):
     
@@ -45,3 +47,6 @@ def solucion_lineal(A,b):
     Bs=sustitucion_atras(B)
 
     return Bs
+
+print("Las fuerzas que actúan sobre el objeto son:{0}" .format(solucion_lineal(F,Fs)))
+print("Las corrientes para cada camino del circuito son:{0}" .format(solucion_lineal(I,Is)))
