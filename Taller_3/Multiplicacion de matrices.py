@@ -2,6 +2,8 @@ import numpy as np
 import sympy as sym
 import matplotlib.pyplot as plt
 
+print('Punto 1, primera parte')
+
 A1 = np.array([[5.,-4.,-2.],[5.,-5.,4.],[2.,5.,-4.],[-5.,4.,3.],[3.,-4.,-3.]])
 B1 = np.array([5.,-2.,-3.])
 
@@ -47,7 +49,11 @@ print(MultiMat(A1,B1))
 print(MultiMat(A2,B2))
 print(MultiMat(A3,B3))
 
+print('Punto 1, segunda parte')
+
+
 Ac = np.array([[2.,5],[5.,-5]])
 Bc = np.array([[-6.,6],[8.,6.]])
 
-print(MultiMat())
+print(MultiMat(Ac,Bc))
+print(MultiMat(Bc,Ac))
