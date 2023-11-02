@@ -1,9 +1,13 @@
 import numpy as np
 
-A=np.array([[-2.,1.,0.],[1.,-2.,1.,],[0.,1.,-2.]])
+k = 23
+m1 = 13
+m2 = 13
+m3 = 5
+
+A=np.array([[(-2*k)/m1,k/m1,0.],[k/m2,(-2*k)/m2,k/m2,],[0.,k/m3,(-2*k)/m3]])
 
 b = np.array([1.,1.,3.])
-c = np.array([2,4,5])
 
 
 def norma(v):
@@ -30,16 +34,11 @@ def eigenvalue(A,v,k):
 
     return (-q,w)
 
-print(eigenvalue(A,b,90))
+v1,e1 = eigenvalue(A,b,90)
 
-#print(np.dot(A,c))
-#print(c*3) 
+w1 = np.sqrt(np.abs(e1))
 
-A = np.array([[-2.,1.,0.],[1.,-2.,1.],[0.,1.,-2]])
-b = np.array([1.,1.,1.])
-
-def norma(v):
-    return np.sqrt(np.dot(v,v.T))
+print(v1,e1)
 
 def ptm(w,A):
     wt = w.T
@@ -58,10 +57,8 @@ def eigenvectors(A,b,k):
     
     return w,mu
 
-print(eigenvectors(A,b,10))
-
 v,e = eigenvectors(A,b,10)
 
 w = np.sqrt(np.abs(e))
 
-print(w)
+print(v,w)
